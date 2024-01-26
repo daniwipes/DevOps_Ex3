@@ -81,7 +81,14 @@ resource "aws_s3_object" "website-upload" {
     source = "./index.html"
 }
 
-
+# backend
+terraform {
+    backend "s3" {
+        bucket = "mei_supa_bucket_oida"
+        key = "rev-demo.tf"
+        region = "us-east-1"
+    }
+}
 
 output "public_ip" {
     value = aws_instance.webserver_instance.public_ip
