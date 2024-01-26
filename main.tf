@@ -81,6 +81,10 @@ resource "aws_s3_object" "website-upload" {
     source = "./index.html"
 }
 
+resource "aws_s3_bucket" "state-bucket" {
+    bucket = "mei_supa_bucket_oida"
+}
+
 # backend
 terraform {
     backend "s3" {
